@@ -2,7 +2,7 @@
 
 ## Requirements
 * Composer
-* MySQL (See app/config/parameters.yml)
+* MySQL
 
 ## Installs the project dependencies
 `> composer install`
