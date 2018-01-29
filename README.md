@@ -1,25 +1,34 @@
 # TalentNet - Catalog
 
-## Requirements
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+### Prerequisites
+
+We consider the following tools are installed:
 * Composer
 * MySQL
 
-## Installs the project dependencies
-`> composer install`
+### Installing
 
-## Create database
-`> php bin/console doctrine:schema:create`
-    
-## Populate database
-`> php bin/console app:populate data/seeds/electronic-catalog.json`
+A step by step series of examples that tell you what to do to get a development env running
+* Installs the project dependencies
+* Create database
+* Populate database
+* Run server
 
-## Run server
-`> php bin/console server:run`
+```
+> composer install
+> php bin/console doctrine:schema:create
+> php bin/console app:populate data/seeds/electronic-catalog.json
+> php bin/console server:run
+```
 
-## ApiDoc
-[http://localhost:8000/api/doc](http://localhost:8000/api/doc)
+Api documentation is available at [http://localhost:8000/api/doc](http://localhost:8000/api/doc)
 
-## Run tests
+## Running the tests
+
 `> ./vendor/phpunit/phpunit/phpunit`
 
-Warning: Empty the database!
+Warning: Running the tests will empty the database!
