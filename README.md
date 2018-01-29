@@ -18,6 +18,7 @@ A step by step series of examples that tell you what to do to get a development 
 * Populate database
 * Run server
 
+In the project directory, run the following commands.
 ```
 > composer install
 > php bin/console doctrine:schema:create
