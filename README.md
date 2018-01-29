@@ -16,8 +16,8 @@
 ## Run server
 `> php bin/console server:run`
 
-## Run tests
-`> ./vendor/phpunit/phpunit/phpunit`
-
 ## ApiDoc
 [http://localhost:8000/api/doc](http://localhost:8000/api/doc)
+
+## Run tests
+`> ./vendor/phpunit/phpunit/phpunit`
