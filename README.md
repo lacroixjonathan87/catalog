@@ -21,3 +21,4 @@
 
 ## Run tests
 `> ./vendor/phpunit/phpunit/phpunit`
+Warning: Empty the database!
