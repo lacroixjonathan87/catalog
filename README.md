@@ -29,7 +29,8 @@ In the project directory, run the following commands.
 Api documentation is available at [http://localhost:8000/api/doc](http://localhost:8000/api/doc)
 
 ## Running the tests
-
-`> ./vendor/phpunit/phpunit/phpunit`
+```
+> ./vendor/phpunit/phpunit/phpunit
+```
 
 Warning: Running the tests will empty the database!
