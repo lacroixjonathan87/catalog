@@ -1,0 +1,7 @@
+products:
+    resource: AppBundle\Controller\ProductsController
+    type:     rest
+
+categories:
+    resource: AppBundle\Controller\CategoriesController
+    type:     rest
