@@ -6,14 +6,13 @@ use AppBundle\Entity\Product;
 use AppBundle\Form\ProductType;
 use AppBundle\Repository\ProductRepository;
 
-use Doctrine\ORM\QueryBuilder;
 use FOS\RestBundle\View\View;
 use Swagger\Annotations as SWG;
 use FOS\RestBundle\Controller\Annotations as FOS;
 use Symfony\Component\HttpFoundation\Request;
 
 
-class ProductsController extends ApiController
+class ProductsController extends AppController
 {
 
     /**
@@ -39,11 +38,15 @@ class ProductsController extends ApiController
      */
     public function getProductsAction(Request $request)
     {
-        $queryBuilder = $this->createQueryBuilder();
-        $adapter = $this->createAdapter($queryBuilder);
-        $pager = $this->createPager($adapter, $request);
+        $page = $request->get('page', 1);
+        $limit = $request->get('limit', 100);
 
-        $models = $this->getModels($pager);
+        $pager = $this->getRepository()
+            ->getProducts($page, $limit);
+
+        $models = $pager->getCurrentPageResults();
+        if($models instanceof \Traversable)
+            $models = iterator_to_array($models);
 
         return View::create(
             array(
@@ -227,35 +230,12 @@ class ProductsController extends ApiController
     /**
      * @return ProductRepository
      */
-    private function getRepository()
+    protected function getRepository()
     {
         /** @var ProductRepository $repo */
         $repo = $this->getDoctrine()
             ->getRepository('AppBundle:Product');
         return $repo;
-    }
-
-    /**
-     * @return QueryBuilder
-     */
-    private function createQueryBuilder()
-    {
-        return $this->getRepository()
-            ->createQueryBuilder('product');
-    }
-
-    /**
-     * @param $id
-     * @param bool $strict
-     * @return object
-     */
-    private function loadModel($id, $strict = true)
-    {
-        $model = $this->getRepository()->find($id);
-        if ($strict && is_null($model)) {
-            throw $this->createNotFoundException();
-        }
-        return $model;
     }
 
 }

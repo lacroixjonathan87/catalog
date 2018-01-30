@@ -3,13 +3,12 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Repository\CategoryRepository;
-use Doctrine\ORM\QueryBuilder;
 use FOS\RestBundle\View\View;
 use Swagger\Annotations as SWG;
 use FOS\RestBundle\Controller\Annotations as FOS;
 use Symfony\Component\HttpFoundation\Request;
 
-class CategoriesController extends ApiController
+class CategoriesController extends AppController
 {
 
     /**
@@ -35,11 +34,15 @@ class CategoriesController extends ApiController
      */
     public function getCategoriesAction(Request $request)
     {
-        $queryBuilder = $this->createQueryBuilder();
-        $adapter = $this->createAdapter($queryBuilder);
-        $pager = $this->createPager($adapter, $request);
+        $page = $request->get('page', 1);
+        $limit = $request->get('limit', 100);
 
-        $models = $this->getModels($pager);
+        $pager = $this->getRepository()
+            ->getCategories($page, $limit);
+
+        $models = $pager->getCurrentPageResults();
+        if($models instanceof \Traversable)
+            $models = iterator_to_array($models);
 
         return View::create(
             array(
@@ -67,15 +70,5 @@ class CategoriesController extends ApiController
             ->getRepository('AppBundle:Category');
         return $repo;
     }
-
-    /**
-     * @return QueryBuilder
-     */
-    protected function createQueryBuilder()
-    {
-        return $this->getRepository()
-            ->createQueryBuilder('category');
-    }
-
 
 }
