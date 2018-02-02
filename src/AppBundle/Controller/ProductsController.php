@@ -184,10 +184,8 @@ class ProductsController extends AppController
         $now = new \DateTime();
         $model->setModifiedAt($now);
 
-        $em = $this->getDoctrine()->getManager();
-
-        $em->persist($model);
-        $em->flush();
+        $this->getRepository()
+            ->persist($model);
 
         return View::create(
             array(
@@ -214,9 +212,8 @@ class ProductsController extends AppController
     {
         $model = $this->loadModel($id);
 
-        $em = $this->getDoctrine()->getManager();
-        $em->remove($model);
-        $em->flush();
+        $this->getRepository()
+            ->remove($model);
 
         return View::create(
             array(

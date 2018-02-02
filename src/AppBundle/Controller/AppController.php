@@ -23,7 +23,8 @@ abstract class AppController extends FOSRestController
      */
     protected function loadModel($id, $strict = true)
     {
-        $model = $this->getRepository()->find($id);
+        $model = $this->getRepository()
+            ->find($id);
         if ($strict && is_null($model)) {
             throw $this->createNotFoundException();
         }

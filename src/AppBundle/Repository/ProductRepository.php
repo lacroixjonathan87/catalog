@@ -25,6 +25,19 @@ class ProductRepository extends AppRepository
         return $pager;
     }
 
+    public function remove($entity)
+    {
+        $em = $this->getEntityManager();
+        $em->remove($entity);
+        $em->flush();
+    }
+
+    public function persist($entity)
+    {
+        $em = $this->getEntityManager();
+        $em->persist($entity);
+        $em->flush();
+    }
 
 
 }
