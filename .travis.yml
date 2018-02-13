@@ -1,6 +1,6 @@
 language: php
 php:
-  - 5.5
+  - 5.5.9
 script: phpunit
 before_script:
   - composer install
