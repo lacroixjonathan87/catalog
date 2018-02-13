@@ -2,6 +2,8 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Entity\Category;
+
 /**
  * ProductRepository
  *
@@ -19,6 +21,7 @@ class ProductRepository extends AppRepository
     public function getProducts($page=1, $limit=100)
     {
         $queryBuilder = $this->createQueryBuilder('t');
+        $queryBuilder->innerJoin(Category::class, 'category');
 
         $pager = $this->paginate($queryBuilder, $page, $limit);
 

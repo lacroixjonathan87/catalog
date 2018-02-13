@@ -45,6 +45,8 @@ class Product
      *
      * @ORM\ManyToOne(targetEntity="Category")
      *
+     * @Assert\NotBlank()
+     *
      * @JMS\Expose
      */
     private $category;
@@ -53,6 +55,8 @@ class Product
      * @var string
      *
      * @ORM\Column(name="sku", type="string", length=255, unique=true)
+     *
+     * @Assert\NotBlank()
      *
      * @JMS\Expose
      */
@@ -63,6 +67,9 @@ class Product
      *
      * @ORM\Column(name="price", type="decimal", precision=10, scale=2)
      *
+     * @Assert\Type(type="numeric")
+     * @Assert\GreaterThanOrEqual(0)
+     *
      * @JMS\Expose
      */
     private $price;
@@ -71,6 +78,9 @@ class Product
      * @var int
      *
      * @ORM\Column(name="quantity", type="integer")
+     *
+     * @Assert\Type(type="integer")
+     * @Assert\GreaterThanOrEqual(0)
      *
      * @JMS\Expose
      */
