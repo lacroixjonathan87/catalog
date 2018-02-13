@@ -12,7 +12,7 @@ We consider the following tools are installed:
 
 ### Installing
 
-A step by step series of examples that tell you what to do to get a development env running
+A step by step to get a development env running
 * Installs the project dependencies
 * Create database
 * Populate database
@@ -26,7 +26,7 @@ In the project directory, run the following commands.
 > php bin/console server:run
 ```
 
-Api documentation is available at [http://localhost:8000/api/doc](http://localhost:8000/api/doc)
+Api documentation will be available at [http://localhost:8000/api/doc](http://localhost:8000/api/doc)
 
 ## Running the tests
 ```
