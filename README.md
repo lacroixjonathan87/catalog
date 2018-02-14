@@ -28,7 +28,7 @@ In the project directory, run the following commands.
 
 Api documentation will be available at [http://localhost:8000/api/doc](http://localhost:8000/api/doc)
 
-## Running the tests
+## Running the tests [![Build Status](https://travis-ci.org/lacroixjonathan87/catalog.svg?branch=master)](https://travis-ci.org/lacroixjonathan87/catalog)
 ```
 > ./vendor/phpunit/phpunit/phpunit
 ```
