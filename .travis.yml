@@ -1,10 +1,12 @@
 language: php
 php:
-  - 7.1
+- 7.1
 install:
-  - mysql -e 'CREATE DATABASE symfony;'
-  - composer install
-  - php bin/console doctrine:schema:create
+- mysql -e 'CREATE DATABASE symfony;'
+- composer install
+- php bin/console doctrine:schema:create
 script: phpunit
 notifications:
   email: false
+  slack:
+    secure: pWYrsjBGr8+MsIpQhpuLKqXNS4s4oCQnEZJIwCtyevcVT06L4mB/oCaiBkLaPFv151Dj3k5AbOUm0JfnKiyvEtEnLRSJU7fopdAjPUlHQc7uxaw0BqSQ9JU8pCmB0H8+arf4aCLz1H9mjntFit7Gx+dicveLmSBB3ISVjVHsG6/yw+3IDMYTxpnQBSl1qn9WP+TkcoEf/5pUoCAARWJzbfMTpENqiitrxXfLuezH95ZVuOu07BTIhtcfSHm0wsumaDPo7rudCXjVX8/JEgf3dwLFZLc64MKCZZhSP4nE2MFIRHm67RkOAO0DI3qHjfL1E52rM8jgFySk8nkQaDZ4xsUQQml1aZshtdySK551XE3CfJkpkGsbDibHZIzxFs/FgfG2pyZcgQBKx1WwTlB1A26hEb0vLGKFf/fKbe6qEPnEEjp7IjTLuY91tsi1GxEFFXtFRGqFOk4X8nbPec5ZEPNaviCl0Y2ECm2EvKWxn5XZTwGxix/v88Ipj0Cs4aSjnMbr5QOPvZzS6MdnC8zqTJtdI2noyXhtV2pCWQ0Zw+wZb+22CVqNguETus5L8pSrgpaQbzsSaYgV+61gMVc8FqYewJ2v4KTcbQoxmYKx5S95MMQo1s2S0gX6I5SIHHzFPf8xjE+/6wwjjCKcpVF+p/0DhR7eAVKDrL2+jrdUp5o=
